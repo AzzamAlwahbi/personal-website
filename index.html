@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azzam Alwahbi | Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #264653;
+            --accent: #e76f51;
+            --light: #f8f9fa;
+            --text: #2b2d42;
+            --gray: #8d99ae;
+            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --section-padding: 6rem 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9f5f4 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: #d45a3d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(231, 111, 81, 0.25);
+        }
+
+        /* Header Styles */
+        header {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 12rem 0 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: -250px;
+            right: -150px;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            color: var(--gray);
+        }
+
+        .hero-highlight {
+            background: linear-gradient(120deg, rgba(231, 111, 81, 0.2) 0%, rgba(231, 111, 81, 0) 100%);
+            padding: 0 8px;
+            border-radius: 4px;
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            background: white;
+            border-radius: var(--border-radius);
+            margin: 0 2rem 4rem;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            position: relative;
+            color: var(--secondary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .info-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .info-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.1rem;
+        }
+
+        .info-list i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        /* Image Placeholder */
+        .image-container {
+            flex: 0 0 350px;
+            height: 400px;
+            background: linear-gradient(45deg, #e0f2f1, #b2dfdb);
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.6);
+            transform: rotate(-45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .placeholder-icon {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .placeholder-text {
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, var(--secondary), #1a3c4a);
+            color: white;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            padding: 3rem 0 5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 5rem 0 2rem;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.8rem;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.8rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.8rem;
+            }
+            
+            .hero {
+                padding: 10rem 0 6rem;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+            }
+            
+            .hero p {
+                margin: 0 auto 2.5rem;
+            }
+            
+            .about {
+                margin: 0 1rem 3rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .info-list li {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+            
+            .image-container {
+                width: 100%;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-terminal"></i>
+                    <span>Azzam</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <h1 class="animate">Azzam Alwahbi</h1>
+                <h2 class="animate delay-1">Computer Science Student</h2>
+                <p class="animate delay-1">Passionate about technology and building innovative solutions that make a difference. Currently studying at <span class="hero-highlight">Qassim University</span>.</p>
+                <div class="animate delay-2">
+                    <a href="#about" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title animate">About Me</h2>
+            <div class="about-content">
+                <div class="about-text animate delay-1">
+                    <h3>Personal Profile</h3>
+                    <p>Hello! I'm Azzam, a 22-year-old Computer Science student at Qassim University. I'm deeply passionate about software development, artificial intelligence, and creating technology solutions that solve real-world problems.</p>
+                    
+                    <ul class="info-list">
+                        <li><i class="fas fa-user"></i> <strong>Name:</strong> Azzam Alwahbi</li>
+                        <li><i class="fas fa-birthday-cake"></i> <strong>Age:</strong> 22 years</li>
+                        <li><i class="fas fa-university"></i> <strong>University:</strong> Qassim University</li>
+                        <li><i class="fas fa-graduation-cap"></i> <strong>Major:</strong> Computer Science</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Saudi Arabia</li>
+                    </ul>
+                    
+                    <p>I'm constantly expanding my knowledge in modern web technologies, machine learning, and software engineering principles. My goal is to become a skilled developer who contributes to the technological advancement of my community.</p>
+                </div>
+                
+                <div class="image-container animate delay-2">
+                    <i class="fas fa-user-circle placeholder-icon"></i>
+                    <span class="placeholder-text">Profile Image</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title animate" style="color: white;">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card animate">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill-card animate delay-1">
+                    <i class="fas fa-database"></i>
+                    <h3>Database</h3>
+                    <p>SQL, MongoDB, Data Modeling</p>
+                </div>
+                <div class="skill-card animate delay-2">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & ML</h3>
+                    <p>Python, TensorFlow, Data Analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="cta-container">
+        <button id="messageBtn" class="btn animate delay-2">Show Message</button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Azzam Alwahbi</h3>
+                    <p>Computer Science student passionate about creating innovative solutions through technology and programming.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/azzam-alwahbi-24b164373/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/AzzamAlwahbi" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> azzamalwahbi1@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +966 543 527 177</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Azzam Alwahbi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Button click functionality
+        document.getElementById('messageBtn').addEventListener('click', function() {
+            const messages = [
+                "Thank you for visiting my website!",
+                "I appreciate you taking the time to view my profile!",
+                "Your visit means a lot to me!",
+                "Hope you enjoyed browsing my personal website!",
+                "Feel free to reach out if you have any questions!"
+            ];
+            
+            // Get a random message
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Create a custom alert
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: white;
+                color: var(--accent);
+                padding: 18px 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                font-weight: 600;
+                font-size: 1.1rem;
+                z-index: 1000;
+                animation: slideIn 0.5s, fadeOut 0.5s 2.5s;
+                border: 2px solid var(--accent);
+            `;
+            
+            // Add keyframes dynamically
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { top: -100px; opacity: 0; }
+                    to { top: 30px; opacity: 1; }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            alertBox.textContent = randomMessage;
+            document.body.appendChild(alertBox);
+            
+            // Remove alert after animation
+            setTimeout(() => {
+                alertBox.remove();
+                style.remove();
+            }, 3000);
+        });
+        
+        // Add scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            // Observe elements that should animate when scrolled into view
+            document.querySelectorAll('.hero, .about, .skills, .cta-container').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
